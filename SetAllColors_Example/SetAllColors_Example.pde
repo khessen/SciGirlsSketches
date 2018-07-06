@@ -33,5 +33,8 @@ void draw()
   background(150);
   
   scaleDegree  = module.getScaleDegree(0);
+  
   module.legend(scaleDegree, 0);
+  
+  module.getModuleMenu().runMenu();
 }
