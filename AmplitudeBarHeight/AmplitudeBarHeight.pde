@@ -24,7 +24,7 @@ void draw()
   //Set the bar height to equal the amplitude
   int barHeight = (int) module.getAmplitude(0);
   
-  //Set the fill color using the color values from module
+  //Set the fill color
   fill(143, 154, 208);
   
   //Draw the bar.  barHeight is negative because the positive y direction is down

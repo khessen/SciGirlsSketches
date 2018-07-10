@@ -1,19 +1,24 @@
 import beads.*;
 import org.jaudiolibs.beads.*;
-
 import codeandchords.Module;
 
+// This Module is what will give us access to the Code+Chords functions:
 Module module;
 
+// This variable will be set to the note that is currently being sung:
 int  scaleDegree;
+
 
 void setup()
 {
-  size(900, 600);
+  // Rather than setting a size(width, height), make it full screen:
+  fullScreen();
   
+  // Initialize the Module for 6 inputs:
   module  = new Module(this);
   module.setupModule(6);
   
+  // Set the colors:
   module.setColor0forAllInputs(120, 5, 75);
   module.setColor1forAllInputs(96, 52, 167);
   module.setColor2forAllInputs(205, 117, 198);
@@ -27,21 +32,30 @@ void setup()
   module.setColor10forAllInputs(121, 157, 229);
   module.setColor11forAllInputs(204, 136, 75);
   
+  // Set the attack and release values 
+  // (not strictly necessary, but they default to 200,
+  // so if we want them to be different than that, we need to specify like this):
   module.setAttack(0, 400);
   module.setRelease(0, 600);
 }
 
 void draw()
 {
+  // Set a purple background:
   background(73, 3, 46);
-  
+
+  // Get the current note for input 0:
   scaleDegree  = module.getScaleDegree(0);
+  // "Set" the color by telling the module which note is currently being sung:
   module.setColor(scaleDegree, 0);
+  // Fill with the current color and draw a rectangle:
   fill(module.getRed(0), module.getGreen(0), module.getBlue(0));
   rect(50, 50, 200, 200);
   
+  // For testing purposes, draw the scale:
   module.legend(scaleDegree, 0);
 
+  // ... now do it again for each input:
   scaleDegree  = module.getScaleDegree(1);
   module.setColor(scaleDegree, 1);
   fill(module.getRed(1), module.getGreen(1), module.getBlue(1));
