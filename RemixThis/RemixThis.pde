@@ -12,7 +12,7 @@ int  scaleDegree;
 
 void setup()
 {
-  // Rather than setting a size(width, height), make it full screen:
+  // Set the size to the full screen
   fullScreen();
   
   // Initialize the Module for 6 inputs:
@@ -44,8 +44,6 @@ void draw()
 {
   // Set a purple background:
   background(73, 3, 46);
-  
-  ////////////////// Loop would start here...
 
   // Get the current note for input 0:
   scaleDegree  = module.getScaleDegree(0);
@@ -58,11 +56,8 @@ void draw()
   // For testing purposes, draw the scale:
   module.legend(scaleDegree, 0);
   
-  /////////////////// ...and end here. 
-  // Currently, all those 0's stand for the 0th input; 
-  // with a loop, i (or their iteration var of choice) would indicate the input.
-
-  // Now do it again for each input:
+  //In the code above, all of the 0's stand for the input number 0 (the first microphone)
+  // Now we need to do it again for all of the other inputs:
   scaleDegree  = module.getScaleDegree(1);
   module.setColor(scaleDegree, 1);
   fill(module.getRed(1), module.getGreen(1), module.getBlue(1));
