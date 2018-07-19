@@ -12,14 +12,14 @@ int  scaleDegree;
 
 void setup()
 {
-  // Set the size to the full screen
+  // Set the display size to the full screen
   fullScreen();
   
   // Initialize the Module for 6 inputs:
   module  = new Module(this);
   module.setupModule(6);
   
-  // Set the colors:
+  // Set the colors for the notes:
   module.setColor0forAllInputs(120, 5, 75);
   module.setColor1forAllInputs(96, 52, 167);
   module.setColor2forAllInputs(205, 117, 198);
@@ -42,7 +42,7 @@ void setup()
 
 void draw()
 {
-  // Set a purple background:
+  // Set a the background color:
   background(73, 3, 46);
 
   // Get the current note for input 0:
